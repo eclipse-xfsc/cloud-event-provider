@@ -9,8 +9,8 @@ require (
 	github.com/cloudevents/sdk-go/protocol/kafka_sarama/v2 v2.15.0
 	github.com/cloudevents/sdk-go/protocol/mqtt_paho/v2 v2.0.0-20240212142714-4cc6c2d62d63
 	github.com/cloudevents/sdk-go/protocol/nats/v2 v2.14.0
-	github.com/cloudevents/sdk-go/protocol/nats_jetstream/v2 v2.14.0
-	github.com/cloudevents/sdk-go/v2 v2.15.0
+	github.com/cloudevents/sdk-go/protocol/nats_jetstream/v2 v2.15.2
+	github.com/cloudevents/sdk-go/v2 v2.15.2
 	github.com/eclipse/paho.golang v0.12.0
 	github.com/google/uuid v1.5.0
 	github.com/nats-io/nats.go v1.32.0
