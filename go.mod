@@ -12,7 +12,7 @@ require (
 	github.com/cloudevents/sdk-go/protocol/nats_jetstream/v2 v2.14.0
 	github.com/cloudevents/sdk-go/v2 v2.15.0
 	github.com/eclipse/paho.golang v0.12.0
-	github.com/google/uuid v1.5.0
+	github.com/google/uuid v1.6.0
 	github.com/nats-io/nats.go v1.32.0
 	github.com/spf13/viper v1.18.2
 	github.com/stretchr/testify v1.8.4
