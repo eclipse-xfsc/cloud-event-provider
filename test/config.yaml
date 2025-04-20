@@ -1,0 +1,5 @@
+messaging:
+  protocol: nats
+  nats:
+    url: http://localhost:4222
+    timeoutInSec: 10

@@ -1,0 +1,77 @@
+package test
+
+import (
+	"encoding/json"
+	"log"
+	"os"
+	"testing"
+	"time"
+
+	"github.com/cloudevents/sdk-go/v2/event"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/eclipse-xfsc/cloud-event-provider"
+)
+
+/**
+TODO - these tests required a working NATS server
+*/
+
+func TestMain(m *testing.M) {
+	os.Exit(m.Run())
+}
+
+func Test_NewClientFromConfig(t *testing.T) {
+	config := cloudeventprovider.Config{
+		Protocol: cloudeventprovider.Nats,
+		Settings: cloudeventprovider.NatsConfig{
+			Url:          "127.0.0.1",
+			TimeoutInSec: 0,
+		},
+	}
+
+	sender, err := cloudeventprovider.NewClientFromConfig(config, cloudeventprovider.Pub, "testing")
+	require.NoError(t, err)
+
+	receiver, err := cloudeventprovider.NewClientFromConfig(config, cloudeventprovider.Sub, "testing")
+	require.NoError(t, err)
+
+	testData, err := json.Marshal("test")
+	if err != nil {
+		t.Fatalf("failed to marshal test data: %v", err)
+	}
+
+	events := make(chan event.Event)
+	go func(client *cloudeventprovider.CloudEventProviderClient, ch chan event.Event) {
+		t.Logf("starting sub...")
+		err := client.Sub(func(event event.Event) {
+			log.Printf("RECEIVED EVENT: %v", event)
+			ch <- event
+		})
+
+		require.NoError(t, err)
+	}(receiver, events)
+
+	go func() {
+		time.Sleep(time.Second)
+
+		e, err := cloudeventprovider.NewEvent("testing", "testing", testData)
+		require.NoError(t, err)
+
+		t.Log("sending event...")
+		require.NoError(t, sender.Pub(e))
+	}()
+
+	received := <-events
+
+	assert.Equal(t, "testing", received.Type())
+	assert.Equal(t, testData, received.Data())
+}
+
+func Test_NewClient(t *testing.T) {
+	client, err := cloudeventprovider.NewClient(cloudeventprovider.Sub, "testing")
+
+	require.NoError(t, err)
+	assert.NotNil(t, client)
+}
