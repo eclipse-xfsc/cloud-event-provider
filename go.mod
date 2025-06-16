@@ -1,6 +1,6 @@
 module github.com/eclipse-xfsc/cloud-event-provider
 
-go 1.21
+go 1.23.0
 
 require (
 	github.com/Azure/go-amqp v0.17.0
@@ -10,12 +10,12 @@ require (
 	github.com/cloudevents/sdk-go/protocol/mqtt_paho/v2 v2.0.0-20240212142714-4cc6c2d62d63
 	github.com/cloudevents/sdk-go/protocol/nats/v2 v2.14.0
 	github.com/cloudevents/sdk-go/protocol/nats_jetstream/v2 v2.14.0
-	github.com/cloudevents/sdk-go/v2 v2.15.0
+	github.com/cloudevents/sdk-go/v2 v2.16.1
 	github.com/eclipse/paho.golang v0.12.0
-	github.com/google/uuid v1.5.0
+	github.com/google/uuid v1.6.0
 	github.com/nats-io/nats.go v1.32.0
 	github.com/spf13/viper v1.18.2
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.10.0
 )
 
 require (
@@ -53,13 +53,12 @@ require (
 	github.com/spf13/cast v1.6.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
-	go.uber.org/atomic v1.9.0 // indirect
-	go.uber.org/multierr v1.9.0 // indirect
-	go.uber.org/zap v1.21.0 // indirect
+	go.uber.org/multierr v1.11.0 // indirect
+	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/crypto v0.19.0 // indirect
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
 	golang.org/x/net v0.21.0 // indirect
-	golang.org/x/sync v0.6.0 // indirect
+	golang.org/x/sync v0.15.0 // indirect
 	golang.org/x/sys v0.17.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
