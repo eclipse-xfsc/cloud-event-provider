@@ -1,9 +1,9 @@
 module github.com/eclipse-xfsc/cloud-event-provider
 
-go 1.21
+go 1.25
 
 require (
-	github.com/Azure/go-amqp v0.17.0
+	github.com/Azure/go-amqp v1.7.0
 	github.com/IBM/sarama v1.42.2
 	github.com/cloudevents/sdk-go/protocol/amqp/v2 v2.14.0
 	github.com/cloudevents/sdk-go/protocol/kafka_sarama/v2 v2.15.0
@@ -15,7 +15,7 @@ require (
 	github.com/google/uuid v1.5.0
 	github.com/nats-io/nats.go v1.32.0
 	github.com/spf13/viper v1.18.2
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.11.1
 )
 
 require (
