@@ -15,7 +15,7 @@ require (
 	github.com/google/uuid v1.5.0
 	github.com/nats-io/nats.go v1.32.0
 	github.com/spf13/viper v1.18.2
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.11.1
 )
 
 require (
